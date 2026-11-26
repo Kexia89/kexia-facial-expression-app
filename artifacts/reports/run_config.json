@@ -1,0 +1,19 @@
+{
+  "mode": "hybrid",
+  "fusion": "gated",
+  "cnn_size": 160,
+  "vit_size": 224,
+  "classes": [
+    "angry",
+    "disgust",
+    "fear",
+    "happy",
+    "neutral",
+    "sad",
+    "surprise"
+  ],
+  "seed": 42,
+  "batch": 8,
+  "accum": 4,
+  "pretrained": false
+}

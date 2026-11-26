@@ -1,0 +1,8 @@
+cls,train,validation,test
+angry,10046,1002,1975
+disgust,3301,651,756
+fear,8325,647,1688
+happy,34168,5308,6973
+neutral,33147,5772,7052
+sad,16619,2208,3402
+surprise,9682,1429,2244

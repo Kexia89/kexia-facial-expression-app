@@ -1,0 +1,98 @@
+{
+  "model_name": "Kexia Facial Expression V4B",
+  "version": "4B",
+  "run_id": "20261124_102050_038611",
+  "mode": "hybrid",
+  "fusion": "gated",
+  "cnn_backbone": "mobilenet_v2",
+  "vit_backbone": "vit_b_16",
+  "cnn_size": 160,
+  "vit_size": 224,
+  "cnn_feature_dim": 1280,
+  "vit_feature_dim": 768,
+  "projection_dim": 512,
+  "projection_dropout": 0.25,
+  "head_hidden_dim": 256,
+  "head_dropout": 0.4,
+  "num_classes": 7,
+  "total_parameters": 89735175,
+  "classes": [
+    "angry",
+    "disgust",
+    "fear",
+    "happy",
+    "neutral",
+    "sad",
+    "surprise"
+  ],
+  "class_id": {
+    "angry": 0,
+    "disgust": 1,
+    "fear": 2,
+    "happy": 3,
+    "neutral": 4,
+    "sad": 5,
+    "surprise": 6
+  },
+  "normalization": {
+    "mean": [0.485, 0.456, 0.406],
+    "std": [0.229, 0.224, 0.225]
+  },
+  "training": {
+    "seed": 42,
+    "batch_size": 8,
+    "gradient_accumulation": 4,
+    "effective_batch_size": 32,
+    "weight_decay": 0.01,
+    "grad_clip_norm": 1.0,
+    "warmup_fraction": 0.05,
+    "min_lr_factor": 0.05,
+    "class_weights": {
+      "angry": 1.364,
+      "disgust": 2.38,
+      "fear": 1.499,
+      "happy": 0.74,
+      "neutral": 0.751,
+      "sad": 1.061,
+      "surprise": 1.39
+    },
+    "stages": [
+      {
+        "stage": "A",
+        "max_epochs": 8,
+        "patience": 4,
+        "head_lr": 0.001,
+        "cnn_lr": 0.0,
+        "vit_lr": 0.0
+      },
+      {
+        "stage": "B",
+        "max_epochs": 20,
+        "patience": 6,
+        "head_lr": 0.0001,
+        "cnn_lr": 3e-05,
+        "vit_lr": 1e-05
+      },
+      {
+        "stage": "C",
+        "max_epochs": 25,
+        "patience": 7,
+        "head_lr": 5e-05,
+        "cnn_lr": 1e-05,
+        "vit_lr": 5e-06
+      }
+    ]
+  },
+  "selected_checkpoint": {
+    "filename": "best.pt",
+    "selection_criterion": "val_macro_f1",
+    "stage": "C",
+    "epoch": 5,
+    "val_loss": 1.410959267662507,
+    "val_accuracy": 0.5406358347534818,
+    "val_balanced_accuracy": 0.44050231149892627,
+    "val_macro_f1": 0.4255765952025515,
+    "val_weighted_f1": 0.5386065679432782,
+    "val_mean_cnn_gate": 0.404335817136166
+  }
+}

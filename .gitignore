@@ -1,0 +1,77 @@
+# =============================================================================
+# Kexia Facial Expression V4B — Git Ignore Specification
+# Protects dataset privacy, local paths, credentials, and large model weights
+# =============================================================================
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+.conda/
+
+# Python caches and bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# Facial image datasets and raw archives (NEVER commit facial images)
+data/
+dataset/
+datasets/
+*.pkl
+*.pickle
+*.tar
+*.tar.gz
+*.zip
+*.7z
+*.rar
+
+# Model checkpoints and large binary weights
+# Distribute only after provenance & license verification via Git LFS / Releases / HF
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.onnx
+*.keras
+*.h5
+*.tflite
+*.bin
+best.pt
+best_original.pt
+last.pt
+trained_model/
+kexia_v3_runs/
+kexia_v4_runs/
+
+# Files containing private local paths, raw manifests, or per-image predictions
+manifest.csv
+manifest_raw.csv
+excluded_images.csv
+perceptual_candidates.csv
+validation_predictions.csv
+test_predictions.csv
+duplicate_conflicts.csv
+image_errors.csv
+
+# Temporary and OS files
+*.tmp
+*.temp
+*.log
+*.swp
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Credentials, secrets, and local environment configuration
+.env
+.env.*
+*.pem
+*.key
+secrets.json
+credentials.json

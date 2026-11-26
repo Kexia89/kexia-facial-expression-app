@@ -1,0 +1,21 @@
+{
+  "run_id": "20261124_102050_038611",
+  "total_scanned": 163567,
+  "total_decoded": 163567,
+  "scan_issues": 0,
+  "total_excluded": 7172,
+  "excluded_by_reason": {
+    "exact_duplicate": 6756,
+    "conflicting_label": 416
+  },
+  "excluded_by_split": {
+    "train": 6389,
+    "test": 444,
+    "validation": 339
+  },
+  "conflicting_pixel_hashes": 158,
+  "cross_split_pixel_hashes": 1556,
+  "retained_images": 156395,
+  "cross_partition_dhash_candidates": 4865,
+  "cross_partition_unique_dhashes": 2373
+}
